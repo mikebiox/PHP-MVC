@@ -3,13 +3,26 @@ include_once ('header.php');
 ?>
 
 <body>
+    <h1>Lab 02</h1>
+    <ol>
+        <li>Loop through the 2 arrays and create two HTML tables. You must use the arrays I have provided.</li>
+        <li>Table 1: 2 columns: movie name, genre</li>
+        <li>Table 2: 3 columns: name, phone, email</li>
+        <li>Format your tables properly using HTML tags</li>
+        <li>Hint: You will need to use echo and foreach</li>
+    </ol>
 
-<table border="1">
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-  </tr>
+<h1> Table 1 </h1>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
 
 <?php
 
@@ -39,13 +52,17 @@ foreach ($employees as $employee) {
     echo '</tr>';
 }
 ?>
+</tbody>
 </table>
-<table border="1">
-  <tr>
-    <th>Movie Name</th>
-    <th>Genre</th>
-  </tr>
-  
+<h1> Table 2 </h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Movie Name</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
 
 <?php
 $films = array(
@@ -65,15 +82,15 @@ $films = array(
 foreach ($films as $genre => $filmArray) {
     echo '<tr>';
     foreach ($filmArray as $film) {
-        echo '<td>' . $film . '</td>';
-        echo '<td>' . $genre . '</td>';
+        echo '<td>' . ucfirst($film) . '</td>';
+        echo '<td>' . ucfirst($genre) . '</td>';
         echo '</tr>';
     }
 }
 
 ?>
-
+</tbody>
 </table>
-
+<?php include_once("footer.php");?>
 </body>
 </html>
