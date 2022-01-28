@@ -1,4 +1,18 @@
 <?php
+/*
+Create 2 PHP pages (index, form)
+And any other files you may need (db, footer, etc.)
+Your index page has a link to your form page
+Index.php should have a link to form.php
+On the form page, have an HTML form with action=form.php and 3 inputs
+One input is a drop-down which is from the database
+Code is provided in lecture notes. Use PDO
+In form.php, check to see if a form has been submitted, if it has, output the results in HTML format
+If not, output HTML form to submit
+
+*/
+
+
     include_once ('header.php');
     include_once ('movieDB.php');
     $movieDB = new movieDB();
@@ -6,14 +20,20 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user_genre = $_REQUEST['genre'];
+        $fname = $_REQUEST['fname'];
+        $color = $_REQUEST['color'];
         $movie_by_genre = $movieDB->get_movies_by_genre($user_genre);
     }
 
 ?>
 
 <h1>Genre Select</h1>
-<label for="genre">Choose a genre:</label>
 <form action="lab3.php" method="post">
+    <label for="fname">First name:</label>
+    <input type="text" name="fname"><br>
+    <label for="color">Favorite Color:</label>
+    <input type="text" name="color"><br>
+    <label for="genre">Choose a genre:</label>
     <select name="genre">
         <?php
             foreach ($genres as $genre) {
@@ -22,12 +42,13 @@
 
         ?>
     </select>
-    <input type="submit" value="Submit">
+    <br><input type="submit" value="Submit">
 </form>
 
 <?php
 
 if (!$movie_by_genre) {
+    echo '</html>';
     die;
 }
 
@@ -57,3 +78,4 @@ foreach ($movie_by_genre as $movie) {
 ?>
 </tbody>
 </table>
+</html>

@@ -19,7 +19,7 @@ Class movieDB {
 
     function get_genres () {
         $conn = db_connect();
-        $query = "SELECT * FROM genre";
+        $query = "SELECT * FROM genre ORDER BY genre_name";
         $stmt = $conn->prepare($query);
         $stmt->execute();
 
@@ -31,7 +31,8 @@ Class movieDB {
         $conn = db_connect();
         $query = "SELECT m.title, g.genre_name FROM movies m 
             JOIN genre g on g.genre_id = m.genre
-            WHERE g.genre_name = :genre_name";
+            WHERE g.genre_name = :genre_name
+            ORDER BY m.title";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':genre_name', $genre_name);
         $stmt->execute();
