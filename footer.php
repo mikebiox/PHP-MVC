@@ -1,3 +1,5 @@
 <footer>
-    Mike | <?=date('l \t\h\e jS, Y')?>
+    <a href="logout.php">Logout</a>
 </footer>
+</body>
+</html>

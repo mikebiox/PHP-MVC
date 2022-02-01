@@ -19,6 +19,7 @@ If not, output HTML form to submit
     $genres = $movieDB->get_genres();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['formSubmitted'] += 1;
         $user_genre = $_REQUEST['genre'];
         $fname = $_REQUEST['fname'];
         $color = $_REQUEST['color'];
@@ -29,20 +30,30 @@ If not, output HTML form to submit
 
 <h1>Genre Select</h1>
 <form action="lab3.php" method="post">
-    <label for="fname">First name:</label>
-    <input type="text" name="fname"><br>
-    <label for="color">Favorite Color:</label>
-    <input type="text" name="color"><br>
-    <label for="genre">Choose a genre:</label>
-    <select name="genre">
-        <?php
-            foreach ($genres as $genre) {
-                echo '<option value="'. $genre['genre_name'] . '">' . $genre['genre_name'] . '</option>';
-            }
+<fieldset>
+    <div>    
+        <label for="fname">First name:</label>
+        <input type="text" name="fname">
+    </div>
+    <div> 
+        <label for="color">Favorite Color:</label>
+        <input type="text" name="color">
+    </div>
+    <div> 
+        <label for="genre">Choose a genre:</label>
+        <select name="genre">
+            <?php
+                foreach ($genres as $genre) {
+                    echo '<option value="'. $genre['genre_name'] . '">' . $genre['genre_name'] . '</option>';
+                }
 
-        ?>
-    </select>
-    <br><input type="submit" value="Submit">
+            ?>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class="pure-button pure-button-primary">
+    </div>
+</fieldset>
 </form>
 
 <?php
@@ -54,10 +65,11 @@ if (!$movie_by_genre) {
 
 ?>
 
-
 <h1> Movies </h1>
 
-<table class="styled-table">
+<p> You submitted this form <?=$_SESSION['formSubmitted']?> time(s) </p>
+
+<table>
     <thead>
         <tr>
             <th>Movie Title</th>
@@ -78,4 +90,9 @@ foreach ($movie_by_genre as $movie) {
 ?>
 </tbody>
 </table>
+</div>
+<?php
+   include_once ('footer.php');
+?>
+</body>
 </html>
