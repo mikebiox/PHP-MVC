@@ -3,6 +3,6 @@ session_start();
 $_SESSION = array();
 session_destroy();
 
-echo "destroyed";
+header('location:/login.php');
 
 ?>

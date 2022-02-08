@@ -2,8 +2,6 @@
 include_once ('db.php');
 
 Class user {
-    
-    function __construct($param = false) {  }
 
     function get_hash ($username) {
         $conn = db_connect();

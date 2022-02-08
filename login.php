@@ -1,5 +1,5 @@
 <?php
-    include_once ('header.php');
+    include_once ('headerPublic.php');
     include_once ('user.php');
 
     $user = new User ();
@@ -11,11 +11,10 @@
         
         if (password_verify($userDetails['password'], $hash['password'])) {
             $_SESSION['isAuthenticated'] = 1;
-            echo "SUCCESS!"; die;
+            header("location:/secret.php");
         } else {
-            echo "FAIL"; die;
-        }
-        
+            $_SESSION['failedAttemps'] += 1;
+        }     
     }
 ?>
 

@@ -2,8 +2,6 @@
 include_once ('db.php');
 
 Class movieDB {
-    
-    function __construct($param = false) {  }
 
     function get_movie_genre () {
         $conn = db_connect();

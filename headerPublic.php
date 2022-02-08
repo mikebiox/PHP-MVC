@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if (!$_SESSION['isAuthenticated']) {
-        header('location:/login.php');
+    if ($_SESSION['isAuthenticated']) {
+        header('location:/');
     }
 ?>
 
