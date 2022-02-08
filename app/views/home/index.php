@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <p> <?=$data['message']?> </p>
+            <p> <a href="/login">Click here to login</a></p>
         </div>
     </div>
 
