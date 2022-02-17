@@ -13,9 +13,9 @@ define('CONTROLLERS', ROOT . DS . 'controllers');
 define('LOGS', ROOT . DS . 'logs');	
 define('FILES', ROOT . DS. 'files');
 
-// ---------------------  NEW FENIX DATABASE TABLE -------------------------
+// ---------------------  NEW DATABASE TABLE -------------------------
 define('DB_HOST',         'localhost');
 define('DB_USER',         'root'); 
 define('DB_PASS',         '');
-define('DB_DATABASE',     'map202');
+define('DB_DATABASE',     'saultcollege_map104');
 define('DB_PORT',         '');

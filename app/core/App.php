@@ -2,23 +2,19 @@
 
 class App {
 
-    protected $controller = 'home';
-    //protected $method = 'login';
+    protected $controller = 'login';
     protected $method = 'index';
     protected $params = [];
 
     public function __construct() {
         if (isset($_SESSION['auth']) == 1) {
-            $this->method = 'index';
+            //$this->method = 'index';
+            $this->controller = 'home';
         } 
 
         // This will return a broken up URL
         // it will be /controller/method
         $url = $this->parseUrl();
-		
-		//echo "<pre>";
-		//print_r ($url);
-		//die;
 
         /* if controller exists in the URL, then go to it
          * if not, then go to this->controller which is defaulted to home 

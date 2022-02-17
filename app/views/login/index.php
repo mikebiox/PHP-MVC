@@ -13,14 +13,15 @@
 		<form action="/login/verify" method="post" >
 		<fieldset>
 			<div class="form-group">
-				<label for="name">Username</label>
+				<label for="username">Username</label>
 				<input required type="text" class="form-control" name="username">
 			</div>
 			<div class="form-group">
-				<label for="name">Password</label>
+				<label for="password">Password</label>
 				<input required type="password" class="form-control" name="password">
 			</div>
-		  <button type="submit" class="btn btn-primary">Login</button>
+            <br>
+		    <button type="submit" class="btn btn-primary">Login</button>
 		</fieldset>
 		</form> 
 	</div>
