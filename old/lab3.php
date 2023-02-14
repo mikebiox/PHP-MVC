@@ -44,7 +44,7 @@ If not, output HTML form to submit
         <select name="genre">
             <?php
                 foreach ($genres as $genre) {
-                    echo '<option value="'. $genre['genre_name'] . '">' . $genre['genre_name'] . '</option>';
+                    echo '<option value="'. htmlspecialchars($genre['genre_name']) . '">' . $genre['genre_name'] . '</option>';
                 }
 
             ?>
@@ -82,8 +82,8 @@ if (!$movie_by_genre) {
 
 foreach ($movie_by_genre as $movie) {
     echo '<tr>';
-    echo '<td>' . $movie['title'] . '</td>';
-    echo '<td>' . $movie['genre_name'] . '</td>';
+    echo '<td>' . htmlspecialchars($movie['title']) . '</td>';
+    echo '<td>' . htmlspecialchars($movie['genre_name']) . '</td>';
     echo '</tr>';
 }
 
