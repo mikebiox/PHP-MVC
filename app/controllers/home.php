@@ -6,9 +6,8 @@ class Home extends Controller {
       $user = $this->model('User');
       $data = $user->test();
 
-      print_r ($data);
-      die;
-      
+			// NOTE: if you just cloned the repo, after you update your DB_PASS, you will land here. You can do an echo 123; die; and see that you are here! But we are instead going to the home/index file.
+			
 	    $this->view('home/index');
 	    die;
     }
